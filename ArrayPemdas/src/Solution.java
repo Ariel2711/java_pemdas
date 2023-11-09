@@ -9,21 +9,20 @@ public static void main(String[] args) {
         int target = scanner.nextInt();
     
         int[][] array = new int[height][width];
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
+        for (int i = 0; i < array.length; i++) 
+            for (int j = 0; j < array[i].length; j++) 
                 array[i][j] = scanner.nextInt();
-            }
-        }
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                for (int x = i; x < array.length; x++) {
+            
+        for (int i = 0; i < array.length; i++) 
+            for (int j = 0; j < array[i].length; j++) 
+                for (int x = i; x < array.length; x++) 
                     for (int y = 0; y < array[x].length; y++) {
-                        if (i == x && y <= j) {
+                        if (i == x && y <= j) 
                             continue;
-                        }
+
                         int a = array[i][j];
                         int b = array[x][y];
-                        
+
                         if (a + b == target)
                             System.out.println("[" + i + "," + j + "] + [" + x + "," + y + "]");
                         if (a - b == target)
@@ -37,9 +36,7 @@ public static void main(String[] args) {
                         if (a != 0 && b % a == 0 && b / a == target)
                             System.out.println("[" + x + "," + y + "] / [" + i + "," + j + "]");
                     }
-                }
-            }
-        }
+                    
         scanner.close();
     }
 }
