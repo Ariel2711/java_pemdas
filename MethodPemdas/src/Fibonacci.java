@@ -1,30 +1,37 @@
 import java.util.Scanner;
 
 public class Fibonacci {
-    static int angkaSekarang = 0, angkaSebelumnya = 0, iterasi = 0, panjangBarisan;
+    static int currNumber, preNumber, lengthFibonacci, iteration = 1;
      public static void main(String[] args) {
-        if(iterasi == 0){
-            System.out.println("Barisan Fibonacci");
-
+        if(Fibonacci.iteration == 1){
             Scanner scanner = new Scanner(System.in);
+            
+            System.out.print("Masukkan panjang fibonacci\t : ");
+            Fibonacci.lengthFibonacci = scanner.nextInt();
 
-            System.out.print("Input angka pertama\t : ");
-            Fibonacci.angkaSekarang = scanner.nextInt();
+            System.out.print("Masukkan bilangan pertama\t : ");
+            Fibonacci.preNumber = scanner.nextInt();
 
-            System.out.print("Input panjang barisan\t : ");
-            Fibonacci.panjangBarisan = scanner.nextInt();
+            System.out.print("Masukkan bilangan kedua\t\t : ");
+            Fibonacci.currNumber = scanner.nextInt();
+
+            System.out.println("Deret Fibonacci\t\t\t : ");
 
             scanner.close();
         }
 
-        if (iterasi < panjangBarisan) {
-            System.out.print(angkaSekarang + ", ");
+        if (Fibonacci.iteration < Fibonacci.lengthFibonacci) {
+            if(Fibonacci.iteration == 1)
+                System.out.print(Fibonacci.preNumber + " ");
 
-            int temp = angkaSekarang;
-            angkaSekarang += angkaSebelumnya;
-            angkaSebelumnya = temp;
+            System.out.print(Fibonacci.currNumber + " ");   
 
-            iterasi++;
+            int temp = Fibonacci.currNumber;
+            Fibonacci.currNumber += Fibonacci.preNumber;
+            Fibonacci.preNumber = temp;
+
+            Fibonacci.iteration++;
+
             main(args);
         }
     }
